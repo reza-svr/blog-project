@@ -63,10 +63,20 @@ https://templatemo.com/tm-551-stand-blog
                 <a class="nav-link" href="blog.html">Blog Entries</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="post-details.html">Post Details</a>
+                <a class="nav-link" href="contact.html">Contact Us</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="contact.html">Contact Us</a>
+                {% if request.user.is_authenticated %}
+                  <div class="d-flex">
+                    <a class="nav-link" href="">{{ request.user.username }}</a>
+                    <a class="" href="{% url 'account:logout' %}"><span class="badge btn-danger mt-2">logout</span></a>
+                  </div>
+                {% else %}
+                  <div class="d-flex">
+                    <a class="nav-link" href="{% url 'account:login' %}">login</a>
+                    <a class="nav-link" href="{% url 'account:register' %}">register</a>
+                  </div>
+                {% endif %}
               </li>
             </ul>
           </div>
