@@ -40,7 +40,10 @@ INSTALLED_APPS = [
 
     # apss
     'home_app',
-    'account'
+    'account',
+    'blog_app',
+
+    'django_cleanup.apps.CleanupConfig',
 ]
 
 MIDDLEWARE = [
@@ -109,7 +112,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Asia/Tehran'
 
 USE_I18N = True
 
@@ -120,7 +123,9 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
 STATIC_URL = 'static/'
+MEDIA_URL  = 'media/'
 STATICFILES_DIRS = [os.path.join(BASE_DIR,"static")]
+MEDIA_ROOT = os.path.join(BASE_DIR , 'media')
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 

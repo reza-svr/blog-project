@@ -3,10 +3,14 @@ venv/
 *.pyc
 __pycache__/
 
+/media/
 
 .env
 *.sqlite3
 *.log
+
+*/migrations/*.py
+!*/migrations/__init__.py
 
 
 *.bak
