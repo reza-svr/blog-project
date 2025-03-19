@@ -32,6 +32,16 @@ class Category(models.Model):
 
     def __str__(self):
         return self.title
+    
+
+    
+class ArticleManager(models.Manager):
+    def counter(self):
+        return len(self.all())
+    
+    def published(self):
+        return self.filter(published = True)
+    
 
 class Article(models.Model):
 
@@ -48,6 +58,9 @@ class Article(models.Model):
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
     # pub_date = models.DateField(default=timezone.now())
+    status = models.BooleanField(default=True)
+    published = models.BooleanField(default=True)
+    objects = ArticleManager()
 
     def __str__(self):
         return f"{self.title} - {self.body[:30]}"
