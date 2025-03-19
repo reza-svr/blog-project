@@ -1,7 +1,8 @@
 from django.db import models
 from django.contrib.auth.models import User
 from django.utils import timezone
-
+from django.urls import reverse
+from django.utils.text import slugify    # chang text to slug
 
 # article to user
 # many to one
@@ -60,7 +61,16 @@ class Article(models.Model):
     # pub_date = models.DateField(default=timezone.now())
     status = models.BooleanField(default=True)
     published = models.BooleanField(default=True)
+    slug = models.SlugField(blank=True , unique=True)
     objects = ArticleManager()
+
+
+    def save(self, force_insert = False, force_update = False, using = None, update_fields = None):
+        self.slug = slugify(self.title)
+        super(Article,self).save()
+
+    def get_absolute_url(self):
+        return reverse('blog:article_detail', kwargs={'slug':self.slug})
 
     def __str__(self):
         return f"{self.title} - {self.body[:30]}"
