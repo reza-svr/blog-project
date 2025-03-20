@@ -20,13 +20,6 @@
     <link rel="stylesheet" href="{% static "css/fontawesome.css" %}">
     <link rel="stylesheet" href="{% static "css/templatemo-stand-blog.css" %}">
     <link rel="stylesheet" href="{% static "css/owl.css" %}">
-<!--
-
-TemplateMo 551 Stand Blog
-
-https://templatemo.com/tm-551-stand-blog
-
--->
   </head>
 
   <body>
@@ -40,83 +33,17 @@ https://templatemo.com/tm-551-stand-blog
         </div>
     </div>  
     <!-- ***** Preloader End ***** -->
-
     <!-- Header -->
-    <header class="">
-      <nav class="navbar navbar-expand-lg">
-        <div class="container">
-          <a class="navbar-brand" href="index.html"><h2>Stand Blog<em>.</em></h2></a>
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarResponsive">
-            <ul class="navbar-nav ml-auto">
-              <li class="nav-item active">
-                <a class="nav-link" href="index.html">Home
-                  <span class="sr-only">(current)</span>
-                </a>
-              </li> 
-              <li class="nav-item">
-                <a class="nav-link" href="about.html">About Us</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="{% url "blog:post_list" %}">Blog list</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="contact.html">Contact Us</a>
-              </li>
-              <li class="nav-item">
-                {% if request.user.is_authenticated %}
-                  <div class="d-flex">
-                    {% if user.profile.image %}
-                      <img src="{{ user.profile.image.url }}"  style="border-radius: 100%; width: 35px; height: 35px;" alt="">
-                    {% else %}
-                      <img src="{% static 'images/blog-thumb-04.jpg' %}"  style="border-radius: 100%; width: 35px; height: 35px;" alt="">
-                    {% endif %}
-                    <a class="nav-link" href="">{{ request.user.username }}</a>
-                    <a class="" href="{% url 'account:logout' %}"><span class="badge btn-danger mt-2">logout</span></a>
-                  </div>
-                {% else %}
-                  <div class="d-flex">
-                    <a class="nav-link" href="{% url 'account:login' %}">login</a>
-                    <a class="nav-link" href="{% url 'account:register' %}">register</a>
-                  </div>
-                {% endif %}
-              </li>
-            </ul>
-          </div>
-        </div>
-      </nav>
-    </header>
-
+    {% include "includes/header.html" %}
+    
     {% block content %}
     
 
     {% endblock %}
 
+    {% include "includes/footer.html" %}
 
-    <footer>
-        <div class="container">
-          <div class="row">
-            <div class="col-lg-12">
-              <ul class="social-icons">
-                <li><a href="#">Facebook</a></li>
-                <li><a href="#">Twitter</a></li>
-                <li><a href="#">Behance</a></li>
-                <li><a href="#">Linkedin</a></li>
-                <li><a href="#">Dribbble</a></li>
-              </ul>
-            </div>
-            <div class="col-lg-12">
-              <div class="copyright-text">
-                <p>Copyright 2020 Stand Blog Co.
-                      
-                   | Design: <a rel="nofollow" href="https://templatemo.com" target="_parent">TemplateMo</a></p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </footer>
+    
   
       <!-- Bootstrap core JavaScript -->
       <script src="{% static "vendor/jquery/jquery.min.js" %}"></script>

@@ -1,6 +1,6 @@
 # 📝 Blog Project
 
-A dynamic and fully responsive blog application built with Django (or your preferred framework). This project allows users to create, read, update, and delete blog posts seamlessly. It supports user authentication, comments, and a clean, modern UI design.  
+A dynamic and fully responsive blog application built with Django . This project allows users to create, read, update, and delete blog posts seamlessly. It supports user authentication, comments, and a clean, modern UI design.  
 
 ---
 
@@ -17,7 +17,7 @@ A dynamic and fully responsive blog application built with Django (or your prefe
 
 ## 🔧 Technologies Used  
 
-- **Backend:** Django / Flask / Node.js (adjust to your stack)  
+- **Backend:** Django  
 - **Frontend:** HTML, CSS, JavaScript  
 - **Database:** SQLite / PostgreSQL / etc.  
 
@@ -37,12 +37,12 @@ A dynamic and fully responsive blog application built with Django (or your prefe
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/almahesabnet/AlmaHesabNet-Platform.git
+   git clone https://github.com/reza-svr/blog-project.git
    ```
 
 2. Navigate into the project directory:
    ```bash
-   cd AlmaHesabNet
+   cd blog-project
    ```
 
 3. Set up a virtual environment:
