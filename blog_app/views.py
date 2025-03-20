@@ -1,5 +1,5 @@
 from django.shortcuts import render , get_object_or_404
-from blog_app.models import Article
+from blog_app.models import Article , Category
 
 
 
@@ -10,4 +10,9 @@ def post_detail(request ,slug):
 
 def post_list(request):
     articles = Article.objects.all()
+    return render(request , "blog_app/post-list.html" , {'articles' : articles})
+
+def category_post_list(request , pk=None):
+    category = get_object_or_404(Category, id=pk)
+    articles = category.article_set.all()
     return render(request , "blog_app/post-list.html" , {'articles' : articles})
