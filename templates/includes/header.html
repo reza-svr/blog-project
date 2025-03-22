@@ -15,7 +15,7 @@
               </a>
             </li> 
             <li class="nav-item">
-              <a class="nav-link" href="about.html">About Us</a>
+              <a class="nav-link" href="about.html">edie</a>
             </li>
             <li class="nav-item {% if request.resolver_match.url_name == 'post_list' %} active {% endif %}">
               <a class="nav-link" href="{% url "blog:post_list" %}">blog</a>
@@ -33,6 +33,7 @@
                   {% endif %}
                   <a class="nav-link" href="">{{ request.user.username }}</a>
                   <a class="" href="{% url 'account:logout' %}"><span class="badge btn-danger mt-2">logout</span></a>
+                  <a class="ml-3 d-block" href="{% url 'account:edit' %}"><span class="badge btn-warning mt-2">edit profile</span></a>
                 </div>
               {% else %}
                 <div class="d-flex">
