@@ -21,7 +21,7 @@
               <a class="nav-link" href="{% url "blog:post_list" %}">blog</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="contact.html">Contact Us</a>
+              <a class="nav-link" href="{% url "home_app:contact_us" %}">Contact Us</a>
             </li>
             <li class="nav-item">
               {% if request.user.is_authenticated %}
