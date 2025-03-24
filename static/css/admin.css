@@ -1,0 +1,9 @@
+@font-face {
+    font-family: YekanBakh;
+    src: url('../fonts/YekanBakhFaNum-VF.woff2'); 
+    font-weight: normal;
+    font-style: normal;
+}
+*{
+    font-family: YekanBakh;
+}

@@ -10,3 +10,7 @@ class Message(models.Model):
 
     def __str__(self):
         return self.title
+    
+    class Meta:
+        verbose_name = "پیام"
+        verbose_name_plural = "پیام ها"

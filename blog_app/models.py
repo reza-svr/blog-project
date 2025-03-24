@@ -28,13 +28,15 @@ from django.utils.text import slugify    # chang text to slug
 
 
 class Category(models.Model):
-    title = models.CharField(max_length=100)
+    title = models.CharField(max_length=100 , verbose_name="عنوان")
     created = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
         return self.title
     
-
+    class Meta:
+        verbose_name = "دسته بندی مقاله"
+        verbose_name_plural = "دسته بندی های مقالات"
     
 class ArticleManager(models.Manager):
     def counter(self):
@@ -51,7 +53,7 @@ class Article(models.Model):
     #     ('B' , 'جنگو'),
     # )
     
-    author = models.ForeignKey(User , on_delete=models.CASCADE)
+    author = models.ForeignKey(User , on_delete=models.CASCADE , verbose_name="نویسنده مقاله")
     category = models.ManyToManyField(Category)
     title = models.CharField(max_length=70) 
     body = models.TextField()
@@ -71,12 +73,16 @@ class Article(models.Model):
 
     def get_absolute_url(self):
         return reverse('blog:article_detail', kwargs={'slug':self.slug})
+    
 
-    def __str__(self):
-        return f"{self.title} - {self.body[:30]}"
+    # in admin.py 
+    # def __str__(self):
+    #     return f"{self.title} - {self.body[:30]}"
     
     class Meta:
         ordering = ('-created',) 
+        verbose_name = "مقاله"
+        verbose_name_plural = "مقالات"
 
 
 
@@ -90,4 +96,6 @@ class Comment(models.Model):
 
     def __str__(self):
         return self.body[:50]
-    
+    class Meta:
+        verbose_name = "نظر"
+        verbose_name_plural = "نظرات"

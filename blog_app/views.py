@@ -1,6 +1,8 @@
 from django.shortcuts import render , get_object_or_404
 from blog_app.models import Article , Category , Comment
 from django.core.paginator import Paginator
+from django.http import HttpResponse
+from django.views import View
 
 
 def post_detail(request ,slug):
@@ -32,3 +34,17 @@ def search(request):
     paginator = Paginator(articles , 1)
     object_list = paginator.get_page(page_number)
     return render(request , "blog_app/post-list.html" ,{'articles' : object_list} )
+
+
+# rewrite articel list with class base views  for learning
+class ListView(View):
+    queryset = None
+    template_name = None
+
+    def get(self , request):
+        return render(request , self.template_name , {'articles' : self.queryset})
+    
+
+class ArticleList(ListView):
+    queryset = Article.objects.all()
+    template_name = "blog_app/post-list.html"

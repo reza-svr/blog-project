@@ -7,7 +7,7 @@ A dynamic and fully responsive blog application built with Django . This project
 ## ✨ Features  
 
 - 🖊️ **Create, edit, and delete posts**  
-- 🔒 **User registration and authentication**  
+- 🔒 **User registration and authentication and edit profile**  
 - 💬 **Comment system**  
 - 🔍 **Search functionality**  
 - 🎯 **Pagination for better content browsing**  
